@@ -609,6 +609,37 @@ function updateUI(data, fromCache) {
   } else {
     elements.cacheIndicator.classList.add('hidden');
   }
+
+  // Apply visibility settings to stat cards
+  applyStatVisibility();
+}
+
+// ===== STAT CARD VISIBILITY =====
+function applyStatVisibility() {
+  const statToSettingMap = {
+    'temperature': 'showTemperature',
+    'humidity': 'showHumidity',
+    'wind': 'showWindSpeed',
+    'uv': 'showUvIndex',
+    'precipitation': 'showPrecipitation',
+    'visibility': 'showVisibility',
+    'cloud': 'showCloudCover',
+    'pressure': 'showPressure',
+    'dewpoint': 'showDewPoint'
+  };
+
+  const statCards = elements.statsGrid.querySelectorAll('.stat-card');
+
+  statCards.forEach(card => {
+    const statType = card.dataset.stat;
+    const settingKey = statToSettingMap[statType];
+
+    if (settingKey && currentSettings[settingKey] === false) {
+      card.classList.add('hidden');
+    } else {
+      card.classList.remove('hidden');
+    }
+  });
 }
 
 // ===== HELPER FUNCTIONS =====
