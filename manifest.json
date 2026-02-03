@@ -6,8 +6,11 @@
   "author": "WEATHER-BUSTER 9000 XXX",
   "browser_specific_settings": {
     "gecko": {
-      "id": "weather-buster-9000-xxx@extension.local",
-      "strict_min_version": "109.0"
+      "id": "weather-buster-9000-xxx@smsdev.local",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["locationInfo"]
+      }
     }
   },
   "permissions": [
