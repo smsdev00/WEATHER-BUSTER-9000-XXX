@@ -1,0 +1,157 @@
+      <!-- Money Goes Here Section -->
+      <section class="donation-section">
+        <span class="donation-text">money goes here</span>
+        <div class="donation-icons">
+          <div class="rabbit-icon">
+            <!-- Lucide rabbit -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 16a3 3 0 0 1 2.24 5" />
+              <path d="M18 12h.01" />
+              <path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3" />
+              <path d="M20 8.54V4a2 2 0 1 0-4 0v3" />
+              <path d="M7.612 12.524a3 3 0 1 0-1.6 4.3" />
+            </svg>
+          </div>
+          <div class="hand-coins-icon" title="Support this extension">
+            <!-- Lucide hand-coins -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
+              <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" />
+              <path d="m2 16 6 6" />
+              <circle cx="16" cy="9" r="2.9" />
+              <circle cx="6" cy="5" r="3" />
+            </svg>
+          </div>
+          <div class="bounce-arrow">
+            <!-- Arrow pointing left at hand -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 8L2 12L6 16" />
+              <path d="M2 12H22" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      /* ===== MONEY GOES HERE FOOTER ===== */
+.donation-section {
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 2px dashed var(--border-glass);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.donation-text {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: lowercase;
+}
+
+.donation-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Terrifying Rabbit with red glowing eyes */
+.rabbit-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--text-secondary);
+  position: relative;
+}
+
+.rabbit-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Red glowing eyes effect */
+.rabbit-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  width: 4px;
+  height: 4px;
+  background: #ff0000;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px #ff0000) drop-shadow(0 0 10px #ff0000);
+  transform: translate(-50%, -100%);
+  animation: eye-glow 2s ease-in-out infinite;
+}
+
+@keyframes eye-glow {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px #ff0000); }
+  50% { opacity: 0.7; filter: drop-shadow(0 0 10px #ff0000) drop-shadow(0 0 15px #ff0000); }
+}
+
+/* Hand-coins with pulse animation */
+.hand-coins-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--warning);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.hand-coins-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hand-coins-icon:hover {
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 10px gold) drop-shadow(0 0 20px gold);
+  animation: none;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.7));
+  }
+}
+
+/* Bouncing arrow - points left at hand */
+.bounce-arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--warning);
+  animation: bounce-left 1s ease-in-out infinite;
+}
+
+.bounce-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes bounce-left {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+
+/* Refresh button animation */
+.icon-btn.refreshing svg {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive adjustments */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

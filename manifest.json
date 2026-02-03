@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "WEATHER-BUSTER 9000 XXX",
+  "version": "2.0.0",
+  "description": "Now with offensive capabilities. A retro-aggressive weather extension with glassmorphism UI, draggable stats grid, and real-time weather data.",
+  "author": "WEATHER-BUSTER 9000 XXX",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "weather-buster-9000-xxx@extension.local",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": [
+    "storage",
+    "geolocation",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://api.open-meteo.com/*",
+    "https://geocoding-api.open-meteo.com/*",
+    "https://ipapi.co/*",
+    "https://nominatim.openstreetmap.org/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_title": "WEATHER-BUSTER 9000 XXX"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "background": {
+    "scripts": ["background/background.js"],
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": false
+  }
+}
